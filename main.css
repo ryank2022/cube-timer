@@ -1,0 +1,35 @@
+body {
+  background-color: #dadada;
+  padding: 0%;
+  margin: 0%;
+}
+.side_times {
+  padding: none;
+  background-color: black;
+  height: 98.3%;
+  width: 10%;
+  color: #e6e4e4;
+  position: absolute;
+}
+.header {
+  text-align: center;
+  padding-bottom: 5%;
+}
+.name {
+  color: #535353;
+}
+.main {
+  text-align: center;
+}
+.hold {
+  width: 50%;
+  height: 80px;
+  border-radius: 15px;
+  border: none;
+  background-color: black;
+  color: #dadada;
+  font-size: 120%;
+}
+.time_start {
+  text-align: center;
+}
