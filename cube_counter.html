@@ -11,6 +11,7 @@
 </head>
 
 <body>
+  <h1 class="scramble" id="scramble"></h1>
  <div class="side_times">
 <h1 class="best">Best times:</h1>
 <h1 class="worst">Worst times:</h1>
@@ -18,25 +19,20 @@
 
 
 
- </div>
-<div class="header">
+<div class="container">
 
- <h1 class="name">Cube counter</h1>
+
+  <div class="buttons">
+    <button id="startStop" onclick="startStop()" class="startStop_button">Start</button> <button id="reset" onclick="reset()" class="reset_button">Reset</button>
+    <div id="display">
+      00:00:00
+    </div>
+  </div>
+
 </div>
-<div class="main">
-
-<button class="hold" onmouseup="mouse_up()">
- Hold to start timer
-</button>
-</div>
-<p class="time_start"> time: <span id="time">0</span>s</p>
 
 
-
-
-
-
- <script src="script.js"></script>
+ <script src="javascript.js"></script>
 </body>
 
 </html>
