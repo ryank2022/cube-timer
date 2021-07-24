@@ -12,18 +12,33 @@
 
 <body>
   <h1 class="scramble" id="scramble"></h1>
+
  <div class="side_times">
-<h1 class="best">Best times:</h1>
-<h1 class="worst">Worst times:</h1>
-<h1 class="average">average time:</h1>
 
+<h1 class="best">Best times</h1>
+<hr>
+<br>
 
+<h1 class="worst">time</h1>
+<hr>
+<div id="time_display" class="times"></div>
+<br>
+
+<h1 class="average">average time</h1>
+<hr>
+
+</div>
+<br><br><br><br><br><br>
+<br><br><br>
 
 <div class="container">
 
 
   <div class="buttons">
-    <button id="startStop" onclick="startStop()" class="startStop_button">Start</button> <button id="reset" onclick="reset()" class="reset_button">Reset</button>
+    <button id="startStop" onclick="startStop()" class="startStop_button">Start</button>
+     <button id="reset" onclick="reset()" class="reset_button">Reset</button>
+     <button class="save_button" id="save_button">Save time</button>
+
     <div id="display">
       00:00:00
     </div>
@@ -32,7 +47,7 @@
 </div>
 
 
- <script src="javascript.js"></script>
+ <script src="script.js"></script>
 </body>
 
 </html>
