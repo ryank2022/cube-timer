@@ -46,7 +46,6 @@ function stopWatch(){
         displayminutes = minutes
     }
 
-    //Display updated time values to user
     document.getElementById("display").innerHTML = displayminutes + ":" + displayseconds + ":" + displaymilliseconds
 
 }
