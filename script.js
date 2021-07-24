@@ -131,6 +131,8 @@ document.getElementById("save_button").addEventListener("click",function() {
       null
     }else{
         let displayTime = document.getElementById('time_display').innerHTML += '<div>' + displayminutes + ":" + displayseconds + ":" + displaymilliseconds + '</div>'
-        displayTime = reset()        
+        displayTime = reset()     
+         displayTIme = generateScramble()     
+
     }
 })
