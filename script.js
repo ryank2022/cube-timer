@@ -1,53 +1,53 @@
-let seconds = 0;
-let minutes = 0;
-let hours = 0;
+let milliseconds = 0
+let seconds = 0
+let minutes = 0
 
-let displaySeconds = 0;
-let displayMinutes = 0;
-let displayHours = 0;
+let displaymilliseconds = 0
+let displayseconds = 0
+let displayminutes = 0
 
-let interval = null;
+let interval = null
 
-let status = "stopped";
+let status = "stopped"
 
 function stopWatch(){
 
-    seconds++;
+    milliseconds++
 
-    if(seconds / 60 === 1){
-        seconds = 0;
-        minutes++;
+    if(milliseconds / 100 === 1){
+        milliseconds = 0;
+        seconds++
 
-        if(minutes / 60 === 1){
-            minutes = 0;
-            hours++;
+        if(seconds / 60 === 1){
+            seconds = 0;
+            minutes++
         }
 
     }
 
-    if(seconds < 10){
-        displaySeconds = "0" + seconds.toString();
+    if(milliseconds < 10){
+        displaySeconds = "0" + milliseconds.toString()
     }
     else{
-        displaySeconds = seconds;
+        displaymilliseconds = milliseconds
+    }
+
+    if(seconds < 10){
+        displayseconds = "0" + seconds.toString()
+    }
+    else{
+        displayseconds = seconds
     }
 
     if(minutes < 10){
-        displayMinutes = "0" + minutes.toString();
+        displayminutes = "0" + minutes.toString()
     }
     else{
-        displayMinutes = minutes;
-    }
-
-    if(hours < 10){
-        displayHours = "0" + hours.toString();
-    }
-    else{
-        displayHours = hours;
+        displayminutes = minutes
     }
 
     //Display updated time values to user
-    document.getElementById("display").innerHTML = displayHours + ":" + displayMinutes + ":" + displaySeconds;
+    document.getElementById("display").innerHTML = displayminutes + ":" + displayseconds + ":" + displaymilliseconds
 
 }
 
@@ -57,16 +57,14 @@ function startStop(){
 
     if(status === "stopped"){
 
-        //Start the stopwatch (by calling the setInterval() function)
-        interval = window.setInterval(stopWatch, 1000);
-        document.getElementById("startStop").innerHTML = "Stop";
-        status = "started";
-
+        interval = window.setInterval(stopWatch, 10)
+        document.getElementById("startStop").innerHTML = "Stop"
+        status = "started"
     }
     else{
 
         window.clearInterval(interval);
-        document.getElementById("startStop").innerHTML = "Start";
+        document.getElementById("startStop").innerHTML = "Start"
         status = "stopped";
 
     }
@@ -76,29 +74,63 @@ function startStop(){
 function reset(){
 
     window.clearInterval(interval);
-    seconds = 0;
-    minutes = 0;
-    hours = 0;
-    document.getElementById("display").innerHTML = "00:00:00";
-    document.getElementById("startStop").innerHTML = "Start";
+    milliseconds = 0
+    seconds = 0
+    minutes = 0
+    document.getElementById("display").innerHTML = "00:00:00"
+    document.getElementById("startStop").innerHTML = "Start"
 
 }
-let scramble_cube = [
-   'r',
-   'r\'',
-   'l',
-   'l\'',
-   'b',
-   'b\'',
-   'd',
-   'd\'',   
-   'f',   
-   'f\''
-]
-let random_scramble = "";
-let i;
-for (i = 0; i < scramble_cube.length; i++) {
-   let num = Math.floor(Math.random()*9)
-   random_scramble += scramble_cube[num]
-}   
-document.getElementById("scramble").innerHTML = random_scramble;
+
+generateScramble()
+
+function generateScramble() {
+
+    var array = new Array("U", " D"," R", " L", " F"," B")
+  
+    var switches = ["&nbsp", "\'&nbsp", "2&nbsp"]; 
+  
+    var array2 = new Array(); 
+  
+    var last = ''; 
+  
+    var random = 0;
+  
+    for (var i = 0; i < 20; i++) {
+      
+        do {
+           random = Math.floor(Math.random() * array.length);
+        } while (last == array[random]) 
+  
+    
+    last = array[random];
+  
+   
+    var scrambleItem = array[random] + switches[parseInt(Math.random()*switches.length)];
+  
+    array2.push(scrambleItem); 
+    }
+  
+    var scramble = "";
+
+    for(i=0; i<20; i++) {
+       scramble += array2[i];
+    }
+  
+    document.getElementById("scramble").innerHTML = scramble; 
+  }
+
+
+
+
+
+document.getElementById("save_button").addEventListener("click",function() {
+    
+ 
+    if(milliseconds === 00 && seconds === 00 && minutes === 00){
+      null
+    }else{
+        let displayTime = document.getElementById('time_display').innerHTML += '<div>' + displayminutes + ":" + displayseconds + ":" + displaymilliseconds + '</div>'
+        displayTime = reset()        
+    }
+})
